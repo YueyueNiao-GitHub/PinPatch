@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PinPatch — Logo Exploration V2</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #171717;
+        --muted: #6b6b67;
+        --line: #deded8;
+        --paper: #f6f6f2;
+        --surface: #fff;
+        --brand: #d94b42;
+        --active: #171717;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      button, a { font: inherit; }
+
+      .page {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 56px 0 80px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: end;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--brand);
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(46px, 7vw, 82px);
+        line-height: .95;
+        letter-spacing: -.045em;
+      }
+
+      .intro {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .controls {
+        display: flex;
+        gap: 6px;
+        padding: 4px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+
+      .swatch {
+        width: 36px;
+        height: 36px;
+        border: 2px solid transparent;
+        border-radius: 7px;
+        background: var(--swatch);
+        cursor: pointer;
+      }
+
+      .swatch[aria-pressed="true"] { border-color: var(--ink); }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        transition: transform 180ms ease, border-color 180ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: color-mix(in srgb, var(--active), transparent 55%);
+      }
+
+      .stage {
+        display: grid;
+        min-height: 250px;
+        place-items: center;
+        border-bottom: 1px solid var(--line);
+        color: var(--active);
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px),
+          #fbfbf8;
+        background-size: 32px 32px;
+      }
+
+      .mark {
+        width: 132px;
+        height: 132px;
+        background: currentColor;
+        -webkit-mask: var(--src) center / contain no-repeat;
+        mask: var(--src) center / contain no-repeat;
+        transition: transform 180ms ease;
+      }
+
+      .card:hover .mark { transform: scale(1.04); }
+
+      .copy { padding: 20px; }
+
+      .meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      h2 { margin: 0; font-size: 17px; }
+
+      .number {
+        color: var(--muted);
+        font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .copy p {
+        min-height: 66px;
+        margin: 12px 0 18px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .download {
+        display: inline-flex;
+        min-height: 36px;
+        align-items: center;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .sizes { display: flex; align-items: end; gap: 7px; color: var(--active); }
+
+      .mini {
+        width: var(--size);
+        height: var(--size);
+        background: currentColor;
+        -webkit-mask: var(--src) center / contain no-repeat;
+        mask: var(--src) center / contain no-repeat;
+      }
+
+      .recommendation {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 38px;
+        align-items: center;
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+
+      .app-icon {
+        display: grid;
+        width: 280px;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: 24%;
+        color: #fff;
+        background: var(--brand);
+      }
+
+      .app-icon .mark { width: 150px; height: 150px; }
+
+      .recommendation h2 { font-size: 30px; }
+
+      .recommendation p {
+        max-width: 680px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .reason {
+        display: inline-flex;
+        margin-bottom: 12px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        color: var(--brand);
+        background: color-mix(in srgb, var(--brand), transparent 91%);
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 860px) {
+        header { grid-template-columns: 1fr; align-items: start; }
+        .controls { justify-self: start; }
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .recommendation { grid-template-columns: 220px minmax(0, 1fr); }
+        .app-icon { width: 220px; }
+      }
+
+      @media (max-width: 580px) {
+        .page { width: calc(100% - 24px); padding-top: 32px; }
+        .grid, .recommendation { grid-template-columns: 1fr; }
+        .app-icon { width: min(280px, 100%); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <p class="eyebrow">Logo Exploration / V2</p>
+          <h1>PinPatch</h1>
+          <p class="intro">避开上一版容易被看成“相机取景框”的结构，改从补丁、定位、浏览器点选、上下文连接与 PP 字母资产五个方向重新探索。</p>
+        </div>
+        <div class="controls" aria-label="预览颜色">
+          <button class="swatch" style="--swatch:#171717" data-color="#171717" aria-label="黑色" aria-pressed="true"></button>
+          <button class="swatch" style="--swatch:#d94b42" data-color="#d94b42" aria-label="品牌红" aria-pressed="false"></button>
+          <button class="swatch" style="--swatch:#2b6fed" data-color="#2b6fed" aria-label="蓝色" aria-pressed="false"></button>
+          <button class="swatch" style="--swatch:#178a62" data-color="#178a62" aria-label="绿色" aria-pressed="false"></button>
+        </div>
+      </header>
+
+      <section class="grid" aria-label="Logo 方案">
+        <article class="card" style="--src:url('./01-patch-fold.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Patch Fold</h2><span class="number">01</span></div>
+            <p>把局部修改抽象成一张带折角的补丁卡片，强调“可交付、可追踪的修改单元”。</p>
+            <div class="footer-row"><a class="download" href="./01-patch-fold.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card" style="--src:url('./02-pin-tile.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Pin Tile</h2><span class="number">02</span></div>
+            <p>将常见定位针的圆心替换成局部补丁块，语义直观，适合作为浏览器工具入口。</p>
+            <div class="footer-row"><a class="download" href="./02-pin-tile.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card" style="--src:url('./03-cursor-patch.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Cursor Patch</h2><span class="number">03</span></div>
+            <p>直接表达“在页面中点选一个局部”，动作感最强，首次看到也容易理解产品用途。</p>
+            <div class="footer-row"><a class="download" href="./03-cursor-patch.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card" style="--src:url('./04-context-link.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Context Link</h2><span class="number">04</span></div>
+            <p>两个上下文层通过一个补丁交汇，表达从浏览器页面到编码 Agent 的连接关系。</p>
+            <div class="footer-row"><a class="download" href="./04-context-link.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card" style="--src:url('./05-patch-matrix.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Patch Matrix</h2><span class="number">05</span></div>
+            <p>从页面网格中提取一个目标块并转为任务针，产品语义最完整，也避开相机图标联想。</p>
+            <div class="footer-row"><a class="download" href="./05-patch-matrix.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+
+        <article class="card" style="--src:url('./06-double-p.svg')">
+          <div class="stage"><div class="mark" aria-hidden="true"></div></div>
+          <div class="copy">
+            <div class="meta"><h2>Double P</h2><span class="number">06</span></div>
+            <p>把 Pin 与 Patch 的两个 P 做成错层结构，品牌性最强，更适合长期扩展到 CLI 与文档站。</p>
+            <div class="footer-row"><a class="download" href="./06-double-p.svg" download>下载 SVG</a><div class="sizes"><i class="mini" style="--size:16px"></i><i class="mini" style="--size:32px"></i><i class="mini" style="--size:48px"></i></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="recommendation">
+        <div class="app-icon" style="--src:url('./05-patch-matrix.svg')"><div class="mark" aria-hidden="true"></div></div>
+        <div>
+          <span class="reason">Recommended Direction</span>
+          <h2>推荐：Patch Matrix</h2>
+          <p>它同时包含页面结构、局部选择与任务化三个含义，识别点不依赖文字，也不再像相机或扫码工具。主图标可用品牌红底白标；在 CLI、文档和单色场景中直接使用黑色 SVG。</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const swatches = document.querySelectorAll('.swatch');
+
+      swatches.forEach((button) => {
+        button.addEventListener('click', () => {
+          root.style.setProperty('--active', button.dataset.color);
+          swatches.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        });
+      });
+    </script>
+  </body>
+</html>

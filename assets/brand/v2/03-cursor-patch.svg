@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PinPatch Cursor Patch</title>
+  <desc id="desc">A browser cursor selecting a compact rounded patch.</desc>
+  <rect x="44" y="19" width="37" height="37" rx="10" fill="none" stroke="currentColor" stroke-width="4.5"/>
+  <path d="M19 34.5 53.5 65l-14.1 2.6 10.2 16-9.1 5.8-10-16.2L21 84Z" fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+</svg>

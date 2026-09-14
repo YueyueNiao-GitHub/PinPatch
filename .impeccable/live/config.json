@@ -1,0 +1,6 @@
+{
+  "files": ["prototypes/agentation-mock/index.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

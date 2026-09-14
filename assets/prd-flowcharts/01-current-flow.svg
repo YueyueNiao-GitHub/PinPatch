@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="520" viewBox="0 0 1480 520">
+  
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#344054"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 700 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #101828; }
+    .subtitle { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #667085; }
+    .label { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #182230; dominant-baseline: middle; }
+    .edge-label { font: 600 14px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475467; paint-order: stroke; stroke: #F8FAFC; stroke-width: 5px; }
+  </style>
+  <rect x="0" y="0" width="1480" height="520" fill="#F8FAFC"/>
+  <text x="48" y="54" class="title">当前流程：自然语言描述导致反复返工</text>
+  <text x="48" y="82" class="subtitle">用户看得见页面问题，但 AI 缺少目标元素和页面现场上下文</text>
+  <line x1="210" y1="210" x2="240" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="420" y1="210" x2="450" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="650" y1="210" x2="685" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="895" y1="210" x2="930" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1150" y1="210" x2="1185" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1185" y1="210" x2="905" y2="380" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/><text x="1045" y="285" text-anchor="middle" class="edge-label">否</text>
+  <line x1="790" y1="342" x2="790" y2="248" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1315" y1="210" x2="1310" y2="210" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/><text x="1312.5" y="200" text-anchor="middle" class="edge-label">是</text>
+  <rect x="50" y="172" width="160" height="76" rx="14" fill="#EEF4FF" stroke="#84ADFF" stroke-width="2"/><text x="130" y="210" text-anchor="middle" class="label">AI 生成前端代码</text>
+  <rect x="240" y="172" width="180" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="330" y="199" text-anchor="middle" class="label">用户打开 localhost</text><text x="330" y="223" text-anchor="middle" class="label"> 页面</text>
+  <rect x="450" y="172" width="200" height="76" rx="14" fill="#FFF6ED" stroke="#FDB022" stroke-width="2"/><text x="550" y="199" text-anchor="middle" class="label">发现样式/文案/状态</text><text x="550" y="223" text-anchor="middle" class="label">问题</text>
+  <rect x="685" y="172" width="210" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="790" y="199" text-anchor="middle" class="label">用户用自然语言描述问</text><text x="790" y="223" text-anchor="middle" class="label">题</text>
+  <rect x="930" y="172" width="220" height="76" rx="14" fill="#FEF3F2" stroke="#F97066" stroke-width="2"/><text x="1040" y="199" text-anchor="middle" class="label">AI 在代码库中猜目</text><text x="1040" y="223" text-anchor="middle" class="label">标位置</text>
+  <polygon points="1250,160 1315,210 1250,260 1185,210" fill="#FFFAEB" stroke="#F79009" stroke-width="2"/><text x="1250" y="210" text-anchor="middle" class="label">是否改对？</text>
+  <rect x="675" y="342" width="230" height="76" rx="14" fill="#FEF3F2" stroke="#F97066" stroke-width="2"/><text x="790" y="369" text-anchor="middle" class="label">补充描述/截图/复制</text><text x="790" y="393" text-anchor="middle" class="label">类名</text>
+  <rect x="1310" y="172" width="160" height="76" rx="14" fill="#ECFDF3" stroke="#32D583" stroke-width="2"/><text x="1390" y="210" text-anchor="middle" class="label">用户预览并继续开发</text>
+</svg>

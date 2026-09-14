@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "PinPatch",
+  "description": "在本地开发页面标注、查看样式、可视化调整，并复制结构化留言给编码 Agent。",
+  "version": "1.0.0",
+  "minimum_chrome_version": "116",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApX7ofXl4o6MAnncNjqPbf1StvhOZZ1qiiqTyOQGocWWSHyaf5zVeMtlBytZyEnlfv4kcDpS63jd0Rhe9Cc0zDsiKEq/C3krp1r707XrUTtFdBuisWdSzz1JqlQ2TJq4hBbxFYBEhm1F1g8TdFOnOE3Nxwi7JgbzBXAUlHP+29j3FvtgzLX3WT9F4CGf7vunoMFfm7aw8yIexpleOAABiJ8Y2xi2Z1n8KGXrzM7c9EMbHAvyS5pzEzzV/wE2rNU6gMFrNErna4OLMaMfQHp9wgX9dFZwP+VjXfNVmDdl5K7u8liQA63umBU64Tafv6isfY7XENdrlRZhJL3oY9wuIwwIDAQAB",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "PinPatch",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost/*",
+        "https://localhost/*",
+        "http://127.0.0.1/*",
+        "https://127.0.0.1/*",
+        "http://[::1]/*",
+        "https://[::1]/*",
+        "file:///*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["annotation-app.js", "annotation-shell.html", "annotation.css", "framework-bridge.js", "*.woff2"],
+      "matches": [
+        "http://localhost/*",
+        "https://localhost/*",
+        "http://127.0.0.1/*",
+        "https://127.0.0.1/*",
+        "http://[::1]/*",
+        "https://[::1]/*",
+        "file:///*"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+}

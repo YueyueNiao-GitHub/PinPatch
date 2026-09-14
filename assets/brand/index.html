@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PinPatch Logo Exploration</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #171717;
+        --muted: #676767;
+        --line: #dededb;
+        --paper: #f7f7f4;
+        --surface: #ffffff;
+        --brand: #d4493f;
+        --blue: #2b6fed;
+        --green: #178a62;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      button, a { font: inherit; }
+
+      .page {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 56px 0 72px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: end;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--brand);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(42px, 7vw, 84px);
+        font-weight: 680;
+        line-height: .95;
+      }
+
+      .intro {
+        max-width: 580px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+        overflow-wrap: anywhere;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .swatch {
+        width: 36px;
+        height: 36px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--swatch);
+        cursor: pointer;
+      }
+
+      .swatch[aria-pressed="true"] { border-color: var(--ink); }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .logo-card {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        transition: border-color 160ms ease, transform 160ms ease;
+      }
+
+      .logo-card:hover {
+        border-color: color-mix(in srgb, var(--active-color), transparent 52%);
+        transform: translateY(-2px);
+      }
+
+      .logo-stage {
+        display: grid;
+        min-height: 260px;
+        place-items: center;
+        border-bottom: 1px solid var(--line);
+        color: var(--active-color);
+        background:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px),
+          #fbfbf9;
+        background-size: 32px 32px;
+      }
+
+      .logo-symbol {
+        width: 132px;
+        height: 132px;
+        background: currentColor;
+        -webkit-mask: var(--src) center / contain no-repeat;
+        mask: var(--src) center / contain no-repeat;
+      }
+
+      .logo-stage .logo-symbol {
+        width: 132px;
+        height: 132px;
+        transition: transform 180ms ease;
+      }
+
+      .logo-card:hover .logo-stage .logo-symbol { transform: scale(1.04); }
+
+      .logo-copy { padding: 20px; }
+
+      .logo-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 650;
+      }
+
+      .number {
+        color: var(--muted);
+        font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .logo-copy p {
+        min-height: 66px;
+        margin: 12px 0 18px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+      }
+
+      .download {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .download:hover { border-color: var(--ink); }
+
+      .recommendation {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 32px;
+        align-items: center;
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+
+      .app-icon {
+        display: grid;
+        width: 280px;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: 8px;
+        color: white;
+        background: var(--brand);
+      }
+
+      .app-icon .logo-symbol { width: 142px; height: 142px; }
+
+      .recommendation h2 { font-size: 30px; }
+
+      .recommendation p {
+        max-width: 640px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 24px;
+        font-size: 30px;
+        font-weight: 720;
+      }
+
+      .wordmark .logo-symbol { width: 48px; height: 48px; }
+
+      @media (max-width: 860px) {
+        header { grid-template-columns: 1fr; align-items: start; }
+        .controls { justify-self: start; }
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .recommendation { grid-template-columns: 220px minmax(0, 1fr); }
+        .app-icon { width: 220px; }
+      }
+
+      @media (max-width: 580px) {
+        .page { width: calc(100% - 24px); padding-top: 32px; }
+        .grid { grid-template-columns: 1fr; }
+        .logo-stage { min-height: 220px; }
+        .recommendation { grid-template-columns: 1fr; }
+        .app-icon { width: 100%; max-width: 280px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <p class="eyebrow">Logo Exploration / 2026</p>
+          <h1>PinPatch</h1>
+          <p class="intro">将页面上的问题精准钉到代码上下文。设计语言保持轻量、可信、工具化，并同时适配浏览器扩展图标、CLI 与文档站。</p>
+        </div>
+        <div class="controls" aria-label="预览颜色">
+          <button class="swatch" style="--swatch:#171717" data-color="#171717" aria-label="黑色" aria-pressed="true"></button>
+          <button class="swatch" style="--swatch:#d4493f" data-color="#d4493f" aria-label="朱红" aria-pressed="false"></button>
+          <button class="swatch" style="--swatch:#2b6fed" data-color="#2b6fed" aria-label="蓝色" aria-pressed="false"></button>
+          <button class="swatch" style="--swatch:#178a62" data-color="#178a62" aria-label="绿色" aria-pressed="false"></button>
+        </div>
+      </header>
+
+      <section class="grid" aria-label="Logo 方案">
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./01-pinpoint-patch.svg')" role="img" aria-label="Pinpoint Patch Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Pinpoint Patch</h2><span class="number">01</span></div><p>四角框选强调精准定位，中央补丁代表被确认的局部修改。小尺寸仍清晰，推荐作为主标。</p><a class="download" href="./01-pinpoint-patch.svg" download>下载 SVG</a></div>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./02-patch-matrix.svg')" role="img" aria-label="Patch Matrix Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Patch Matrix</h2><span class="number">02</span></div><p>页面网格中只有一个目标被提取，尾部折线兼具图钉与任务流转的含义。</p><a class="download" href="./02-patch-matrix.svg" download>下载 SVG</a></div>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./03-context-thread.svg')" role="img" aria-label="Context Thread Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Context Thread</h2><span class="number">03</span></div><p>用一条连续路径连接页面目标与代码符号，突出浏览器到智能体的上下文桥梁。</p><a class="download" href="./03-context-thread.svg" download>下载 SVG</a></div>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./04-focus-patch.svg')" role="img" aria-label="Focus Patch Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Focus Patch</h2><span class="number">04</span></div><p>在页面节点矩阵中隔离单个元素，虚线框对应浏览器里的标注高亮层。</p><a class="download" href="./04-focus-patch.svg" download>下载 SVG</a></div>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./05-double-p.svg')" role="img" aria-label="Double P Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Double P</h2><span class="number">05</span></div><p>把 Pin 与 Patch 的两个 P 编织成紧凑字母标，适合偏开发工具与 CLI 的品牌方向。</p><a class="download" href="./05-double-p.svg" download>下载 SVG</a></div>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage"><div class="logo-symbol" style="--src:url('./06-local-bridge.svg')" role="img" aria-label="Local Bridge Logo"></div></div>
+          <div class="logo-copy"><div class="logo-meta"><h2>Local Bridge</h2><span class="number">06</span></div><p>浏览器、标注节点与智能体形成本地闭环，表达隐私优先的 MCP 桥接架构。</p><a class="download" href="./06-local-bridge.svg" download>下载 SVG</a></div>
+        </article>
+      </section>
+
+      <section class="recommendation">
+        <div class="app-icon"><div class="logo-symbol" style="--src:url('./pinpatch-logo.svg')" role="img" aria-label="PinPatch 推荐主标"></div></div>
+        <div>
+          <p class="eyebrow">Recommended Direction</p>
+          <h2>推荐：Pinpoint Patch</h2>
+          <p>它把产品最关键的三个语义压缩在一个符号里：外框是页面框选，中央方块是局部补丁，中心点是被确认的具体目标。没有依赖渐变和细碎装饰，16px 到应用图标尺寸都能成立。</p>
+          <div class="wordmark"><span class="logo-symbol" style="--src:url('./pinpatch-logo.svg')" aria-hidden="true"></span>PinPatch</div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('.swatch');
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          root.style.setProperty('--active-color', button.dataset.color);
+          buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        });
+      });
+      root.style.setProperty('--active-color', '#171717');
+    </script>
+  </body>
+</html>

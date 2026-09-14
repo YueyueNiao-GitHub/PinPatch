@@ -1,0 +1,18 @@
+class PinpatchMcp < Formula
+  desc "Local bridge and MCP server for PinPatch browser annotations"
+  homepage "https://github.com/pinpatch/pinpatch-mcp"
+  url "__TARBALL_URL__"
+  version "__VERSION__"
+  sha256 "__SHA256__"
+  license :cannot_represent
+
+  depends_on "node"
+
+  def install
+    system "npm", "install", *std_npm_args
+  end
+
+  test do
+    assert_match "pinpatch-mcp", shell_output("#{bin}/pinpatch-mcp --help")
+  end
+end

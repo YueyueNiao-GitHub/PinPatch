@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fdfdfc" />
+    <title>PinPatch - 在页面上标注，让 Agent 准确修改</title>
+    <meta
+      name="description"
+      content="在本地开发页面直接标注问题、查看样式、可视化调整，并复制结构化留言给任意编码 Agent。"
+    />
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/icons/Development/cursor-line.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&amp;family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260716-02" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="mobile-notice">
+      <span class="mobile-notice-icon" aria-hidden="true"><i class="ri-computer-line"></i></span>
+      当前标注模式主要面向桌面端使用。
+    </div>
+
+    <nav class="mobile-nav" aria-label="移动端导航">
+      <div class="mobile-nav-header">
+        <a class="wordmark" href="#overview" aria-label="PinPatch 首页">
+          <i class="ri-cursor-line wordmark-icon" aria-hidden="true"></i>
+          <span>PinPatch</span>
+        </a>
+        <button class="mobile-nav-toggle" type="button" aria-label="展开导航" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-nav-links" hidden>
+        <a href="#overview">概览</a>
+        <a href="#workflow">工作方式</a>
+        <a href="#context">定位上下文</a>
+        <a href="#delivery">复制交付</a>
+        <a href="#binding">留言内容</a>
+        <a href="#status">人工验收</a>
+        <a href="#try">试一试</a>
+      </div>
+    </nav>
+
+    <aside class="side-nav" aria-label="文档导航">
+      <a class="wordmark side-logo" href="#overview" aria-label="PinPatch 首页">
+        <i class="ri-cursor-line wordmark-icon" aria-hidden="true"></i>
+        <span>PinPatch</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="#overview">概览</a>
+        <a class="nav-link" href="#workflow">工作方式</a>
+        <a class="nav-link" href="#context">定位上下文</a>
+        <span class="nav-section">交付</span>
+        <a class="nav-link" href="#delivery">复制交付</a>
+        <a class="nav-link" href="#binding">留言内容</a>
+        <a class="nav-link" href="#status">人工验收</a>
+        <span class="nav-section">体验</span>
+        <a class="nav-link" href="#try">试一试</a>
+      </div>
+      <div class="nav-meta">
+        <span aria-hidden="true">.</span>
+        <a href="#delivery" aria-label="了解交付方式"><i class="ri-information-line" aria-hidden="true"></i></a>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main-content" tabindex="-1">
+      <article class="article" id="overview">
+        <header class="article-header">
+          <div class="heading-container">
+            <h1><span class="sketchy-underline">在页面上指出问题。</span><br />让 <span class="pen-underline">Agent 准确修改。</span></h1>
+            <button class="install-snippet" type="button" data-copy-command="PinPatch：标注 · 可视化编辑 · 复制交付">
+              <code>标注 · 可视化编辑 · 复制交付</code>
+              <span class="copy-glyph" aria-hidden="true"><i class="ri-file-copy-line"></i></span>
+            </button>
+          </div>
+          <p class="tagline">
+            PinPatch 将页面元素、样式信息、可视化调整和修改意见整理成结构化留言。
+            支持复制单条或全部留言，直接粘贴给 CodeFlicker、Codex、Claude Code 等任意编码 Agent。
+          </p>
+        </header>
+
+        <section class="hero-demo" aria-label="产品演示">
+          <div class="hero-browser" data-label="演示浏览器">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="url-bar">localhost:3000</span>
+            </div>
+            <div class="browser-body">
+              <div class="demo-sidebar" data-label="侧边导航" data-source="src/app/Sidebar.tsx:12">
+                <div class="demo-sidebar-logo"><i class="ri-apps-2-line" aria-hidden="true"></i></div>
+                <button class="sidebar-icon active" type="button" aria-label="仪表盘"><i class="ri-dashboard-line" aria-hidden="true"></i></button>
+                <button class="sidebar-icon" type="button" aria-label="收件箱"><i class="ri-inbox-line" aria-hidden="true"></i></button>
+                <button class="sidebar-icon selected" type="button" aria-label="报表"><i class="ri-bar-chart-box-line" aria-hidden="true"></i></button>
+                <button class="sidebar-icon circle" type="button" aria-label="用户"><i class="ri-user-line" aria-hidden="true"></i></button>
+              </div>
+              <div class="demo-main">
+                <div class="demo-topbar">
+                  <div class="demo-title-group" data-label="仪表盘标题" data-source="src/app/DashboardHeader.tsx:8">
+                    <span class="demo-logo"><i class="ri-layout-grid-line" aria-hidden="true"></i></span>
+                    <strong>本地开发项目</strong>
+                  </div>
+                  <button class="hero-ghost-button" data-label="导出按钮" data-source="src/app/DashboardHeader.tsx:22">交付</button>
+                </div>
+                <div class="metric-row" data-label="指标卡片组" data-source="src/components/Metrics.tsx:31">
+                  <article class="metric-card selected" data-label="收入指标">
+                    <span>待处理</span>
+                    <strong>12</strong>
+                  </article>
+                  <article class="metric-card" data-label="活跃智能体指标">
+                    <span>待处理</span>
+                    <strong>3</strong>
+                  </article>
+                  <article class="metric-card" data-label="解决率指标">
+                    <span>已解决</span>
+                    <strong>28</strong>
+                  </article>
+                </div>
+                <div class="demo-table" data-label="反馈表格" data-source="src/components/FeedbackTable.tsx:44">
+                  <div class="table-row table-head">
+                    <span>问题</span>
+                    <span>状态</span>
+                    <span>处理方</span>
+                  </div>
+                  <div class="table-row">
+                    <span>按钮对比度</span>
+                    <span class="status-pill">待处理</span>
+                    <span>Codex</span>
+                  </div>
+                  <div class="table-row">
+                    <span>文案漂移</span>
+                    <span class="status-pill green">已解决</span>
+                    <span>用户确认</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="workflow">
+          <h2>工作方式</h2>
+          <ol>
+            <li>在本地 HTML、localhost 或开发测试页面打开 PinPatch。</li>
+            <li><strong>悬停并点击</strong>有问题的元素，写下希望如何修改。</li>
+            <li>PinPatch 自动整理页面位置、元素信息和留言上下文。</li>
+            <li>复制单条或全部结构化留言，粘贴给当前使用的编码 Agent。</li>
+            <li>Agent 处理后回到页面验收，确认解决或继续补充要求。</li>
+          </ol>
+          <p class="note">
+            <strong>适用页面：</strong>PinPatch 面向正在开发和测试的项目页面，不用于普通互联网内容页面。
+          </p>
+        </section>
+
+        <section id="context">
+          <h2>Agent 如何准确理解</h2>
+          <p>
+            PinPatch 不只记录一句留言，还会把“哪个页面、哪个元素、位于哪里、希望怎么改”一起整理出来，
+            帮助 Agent 更快落到目标代码上下文。
+          </p>
+          <ul>
+            <li><strong>页面信息</strong>说明问题出现在哪个本地或测试页面。</li>
+            <li><strong>元素定位</strong>记录选择器、组件线索和视觉位置。</li>
+            <li><strong>修改意图</strong>保留用户原始留言与后续补充要求。</li>
+            <li><strong>处理记录</strong>串联 Agent 的处理摘要和用户验收结果。</li>
+          </ul>
+        </section>
+
+        <section id="delivery">
+          <h2>复制交付</h2>
+          <p>
+            PinPatch 将页面位置、元素信息、用户留言和可视化调整差异整理成结构化文本。
+            用户可以复制一条具体反馈，也可以一次复制当前页面的全部留言。
+          </p>
+          <ul>
+            <li><strong>复制单条</strong>适合只处理当前问题，并保留完整元素上下文。</li>
+            <li><strong>复制全部</strong>适合一次交付当前页面中的多个问题。</li>
+            <li><strong>适配任意 Agent</strong>不要求安装专属连接服务，也不限制用户使用的编码工具。</li>
+          </ul>
+        </section>
+
+        <section id="binding">
+          <h2>Agent 会收到什么</h2>
+          <p>
+            复制内容不只包含一句评论，还会尽可能保留问题出现的位置和用户希望达到的效果，
+            帮助 Agent 减少查找元素和反复确认的时间。
+          </p>
+          <ul>
+            <li><strong>页面与元素</strong>：页面地址、元素名称、选择器、视觉位置和源码线索。</li>
+            <li><strong>用户要求</strong>：自然语言留言、选中的文字和后续补充内容。</li>
+            <li><strong>样式上下文</strong>：当前样式详情以及可视化调整前后的差异。</li>
+            <li><strong>验收依据</strong>：用户希望看到的目标效果和需要继续确认的问题。</li>
+          </ul>
+        </section>
+
+        <section class="demo-section hide-on-mobile" id="status">
+          <h2>回到页面人工验收</h2>
+          <p>
+            PinPatch 1.0 不自动获取 Agent 的处理进度。用户将留言交给 Agent 后，需要回到页面检查实际修改结果，
+            再决定解决问题或继续补充要求。
+          </p>
+          <div class="animation-demo" data-label="动态进度条" data-source="src/components/Progress.tsx:18">
+            <div class="progress-track">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+          <ul>
+            <li><strong>待处理</strong>：留言仍可编辑、补充、复制或删除。</li>
+            <li><strong>人工检查</strong>：用户刷新页面并对照原留言检查效果。</li>
+            <li><strong>继续补充</strong>：不符合预期时重新调整或再次复制留言。</li>
+            <li><strong>已解决</strong>：用户确认修改符合预期并主动关闭事项。</li>
+          </ul>
+        </section>
+
+        <section id="try" class="demo-section hide-on-mobile">
+          <h2>在线体验</h2>
+          <p>点击右下角黑色按钮展开 PinPatch，再选择标注工具体验完整流程。</p>
+          <div class="demo-elements">
+            <div class="button-group">
+              <button class="demo-button" type="button" data-label="主按钮" data-source="src/components/Button.tsx:14">主按钮</button>
+              <button class="demo-button secondary" type="button" data-label="次按钮" data-source="src/components/Button.tsx:28">次按钮</button>
+              <button class="demo-button blue" type="button" data-label="弹窗触发按钮" data-source="src/components/ModalDemo.tsx:10" id="open-modal">弹窗</button>
+              <button class="demo-button purple" type="button" data-label="隔离弹窗触发按钮" data-source="src/components/ShadowDemo.tsx:16" id="open-shadow-modal">隔离弹窗</button>
+            </div>
+            <input
+              class="demo-input"
+              type="text"
+              name="demo-feedback"
+              aria-label="反馈示例文本"
+              autocomplete="off"
+              placeholder="试着选中这段文字，再创建留言…"
+              value="这句微文案有点含糊，用户可能不知道下一步会发生什么。"
+              data-label="反馈输入框"
+              data-source="src/components/FeedbackInput.tsx:9"
+            />
+            <article class="demo-card" data-label="示例卡片" data-source="src/components/ExampleCard.tsx:5">
+              <h3>可标注示例</h3>
+              <p>
+                点击这张卡片或选中这句话创建留言。PinPatch 会保留元素定位、页面位置和完整处理记录。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="quickstart-links">
+          <p><a class="styled-link" href="#workflow">了解完整工作方式 <span class="arrow">-&gt;</span></a></p>
+          <p><a class="styled-link" href="#delivery">了解结构化复制内容 <span class="arrow">-&gt;</span></a></p>
+          <p><a class="styled-link" href="#try">开始标注示例控件 <span class="arrow">-&gt;</span></a></p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      PinPatch — 在页面上标注，让 Agent 准确修改。
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay" hidden></div>
+    <div class="modal-content" id="demo-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h3 id="modal-title">示例弹窗</h3>
+        <button class="modal-close" type="button" id="close-modal" aria-label="关闭弹窗"><i class="ri-close-line" aria-hidden="true"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>这是原型画布里的一个弹窗。打开标注模式后，也可以直接点击弹窗里的元素发表评论。</p>
+        <p>关闭标注模式时，它就像普通界面元素一样工作。</p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn secondary" type="button" id="cancel-modal">取消</button>
+        <button class="modal-btn primary" type="button" id="confirm-modal">知道了</button>
+      </div>
+    </div>
+
+    <div class="shadow-modal-host" id="shadow-modal-host" hidden></div>
+
+    <div class="annotation-root" data-feedback-toolbar>
+      <div class="annotation-highlight" id="annotation-highlight" hidden></div>
+      <div class="annotation-tooltip" id="annotation-tooltip" role="tooltip" hidden></div>
+      <div class="annotation-markers" id="annotation-markers"></div>
+      <div class="annotation-popup" id="annotation-popup" role="dialog" aria-modal="true" aria-labelledby="annotation-popup-title" hidden></div>
+      <div class="popup-action-tooltip" id="popup-action-tooltip" role="tooltip" hidden></div>
+
+      <aside class="comment-panel" id="comment-panel" hidden aria-label="评论记录面板">
+        <div class="comment-panel-header">
+          <div>
+            <span class="eyebrow">标注</span>
+            <h3 id="panel-title">评论记录</h3>
+          </div>
+          <button class="icon-button light" type="button" id="close-panel" aria-label="关闭评论记录面板"><i class="ri-close-line" aria-hidden="true"></i></button>
+        </div>
+        <div class="comment-panel-body" id="comment-panel-body"></div>
+      </aside>
+
+      <section class="connection-panel" id="connection-panel" hidden aria-label="交付方式设置">
+        <div class="connection-panel-header">
+          <div>
+            <span class="eyebrow">交付</span>
+            <h3>复制交付</h3>
+          </div>
+          <button class="icon-button light" type="button" id="close-connection" aria-label="关闭交付方式设置"><i class="ri-close-line" aria-hidden="true"></i></button>
+        </div>
+        <div class="connection-panel-body" id="connection-panel-body"></div>
+      </section>
+
+      <div class="agent-toolbar collapsed" id="agent-toolbar" data-state="collapsed">
+        <div class="toolbar-expanded-content">
+          <div class="toolbar-actions" id="toolbar-actions" role="toolbar" aria-label="可视化反馈控制">
+            <button class="toolbar-button" type="button" id="annotate-toggle" data-tooltip="进入标注状态（可按“ESC”退出）" aria-label="进入标注状态，可按 ESC 退出"><i class="ri-mark-pen-line" aria-hidden="true"></i></button>
+            <button class="toolbar-button" type="button" id="visibility-toggle" data-tooltip="隐藏全部标注" aria-label="隐藏全部标注" aria-pressed="true"><i class="ri-eye-line" aria-hidden="true"></i></button>
+            <button class="toolbar-button" type="button" id="panel-toggle" data-tooltip="打开评论记录面板" aria-label="打开评论记录面板" aria-expanded="false" aria-controls="comment-panel"><i class="ri-chat-1-line" aria-hidden="true"></i></button>
+            <button class="toolbar-button connection-toggle" type="button" id="connection-toggle" data-tooltip="设置交付方式" aria-label="设置交付方式" aria-expanded="false" aria-controls="connection-panel" hidden><i class="ri-links-line" aria-hidden="true"></i><span class="connection-status-dot" aria-hidden="true"></span></button>
+            <button class="toolbar-button" type="button" id="copy-output" data-tooltip="复制全部标注信息" aria-label="复制全部标注信息">
+              <span class="toolbar-copy-icon-stack" aria-hidden="true">
+                <i class="ri-file-copy-line toolbar-copy-icon copy-idle"></i>
+                <i class="ri-checkbox-circle-line toolbar-copy-icon copy-success"></i>
+              </span>
+            </button>
+            <button class="toolbar-button danger" type="button" id="clear-annotations" data-tooltip="清空全部标注" aria-label="清空全部标注"><i class="ri-delete-bin-6-line" aria-hidden="true"></i></button>
+          </div>
+          <span class="toolbar-divider" aria-hidden="true"></span>
+        </div>
+        <button class="toolbar-main" type="button" id="toolbar-toggle" data-tooltip="展开工具条" aria-label="展开可视化反馈工具条" aria-expanded="false" aria-controls="toolbar-actions">
+          <span class="toolbar-main-icon-stack" aria-hidden="true">
+            <i class="ri-menu-unfold-line toolbar-main-icon unfold"></i>
+            <i class="ri-menu-fold-line toolbar-main-icon fold"></i>
+          </span>
+          <span class="count-badge" id="count-badge" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+    <script src="./app.js?v=20260716-03" defer></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PinPatch 扩展测试页</title>
+    <style>
+      body { margin: 0; padding: 48px; font: 16px/1.5 system-ui, sans-serif; }
+      main { max-width: 720px; margin: auto; }
+      button { padding: 12px 20px; border: 1px solid #222; border-radius: 8px; background: oklab(0 0 0 / 0); }
+      .card { margin-top: 24px; padding: 24px; border: 1px solid #ddd; border-radius: 12px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>本地开发测试页</h1>
+      <button id="primary" type="submit" data-testid="primary-submit" aria-pressed="false" data-component="PrimaryButton" data-source="src/components/PrimaryButton.tsx:12">提交</button>
+      <section class="card"><p>用于验证页面标注、样式详情、可视化预览和留言管理。</p></section>
+      <section class="repeated-actions" aria-label="成员列表">
+        <button class="row-action" type="button">编辑</button>
+        <button class="row-action" type="button"><span>编辑</span></button>
+      </section>
+      <label for="account-password">登录密码</label>
+      <input id="account-password" name="password" type="password" value="super-secret-value" autocomplete="current-password">
+      <div id="message-composer" contenteditable="true" aria-label="消息输入框"><p>composer-secret-value</p></div>
+      <button id="framework-action" type="button">框架按钮</button>
+    </main>
+    <script>
+      function FrameworkAction() {}
+      document.querySelector("#framework-action")["__reactFiber$pinpatch"] = {
+        type: FrameworkAction,
+        _debugSource: {
+          fileName: "src/components/FrameworkAction.tsx",
+          lineNumber: 24,
+          columnNumber: 5,
+        },
+        return: null,
+      };
+    </script>
+  </body>
+</html>

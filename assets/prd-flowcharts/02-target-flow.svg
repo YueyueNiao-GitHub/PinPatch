@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="560" viewBox="0 0 1700 560">
+  
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#344054"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 700 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #101828; }
+    .subtitle { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #667085; }
+    .label { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #182230; dominant-baseline: middle; }
+    .edge-label { font: 600 14px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475467; paint-order: stroke; stroke: #F8FAFC; stroke-width: 5px; }
+  </style>
+  <rect x="0" y="0" width="1700" height="560" fill="#F8FAFC"/>
+  <text x="48" y="54" class="title">目标流程：页面标注转成智能体上下文</text>
+  <text x="48" y="82" class="subtitle">Chrome 插件负责指物、采集现场、生成上下文；智能体负责改代码</text>
+  <line x1="195" y1="230" x2="225" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="375" y1="230" x2="415" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="585" y1="230" x2="625" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="755" y1="230" x2="790" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="970" y1="230" x2="995" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1205" y1="230" x2="1230" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1390" y1="230" x2="1425" y2="230" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1510" y1="268" x2="1510" y2="352" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1420" y1="390" x2="1315" y2="390" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <line x1="1165" y1="390" x2="1105" y2="390" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/><text x="1135" y="380" text-anchor="middle" class="edge-label">是</text>
+  <line x1="1240" y1="442" x2="1240" y2="464" stroke="#344054" stroke-width="2.2" marker-end="url(#arrow)"/><text x="1240" y="443" text-anchor="middle" class="edge-label">否</text>
+  <rect x="45" y="192" width="150" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="120" y="230" text-anchor="middle" class="label">打开本地预览页</text>
+  <rect x="225" y="192" width="150" height="76" rx="14" fill="#EEF4FF" stroke="#84ADFF" stroke-width="2"/><text x="300" y="230" text-anchor="middle" class="label">开启标注模式</text>
+  <rect x="415" y="192" width="170" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="500" y="230" text-anchor="middle" class="label">悬停并选中元素</text>
+  <rect x="625" y="192" width="130" height="76" rx="14" fill="#FFF6ED" stroke="#FDB022" stroke-width="2"/><text x="690" y="230" text-anchor="middle" class="label">输入反馈</text>
+  <rect x="790" y="192" width="180" height="76" rx="14" fill="#F4F3FF" stroke="#9B8AFB" stroke-width="2"/><text x="880" y="230" text-anchor="middle" class="label">生成标注上下文</text>
+  <rect x="995" y="192" width="210" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="1100" y="230" text-anchor="middle" class="label">预览 Markdown / JSON</text>
+  <rect x="1230" y="192" width="160" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="1310" y="230" text-anchor="middle" class="label">复制给智能体</text>
+  <rect x="1425" y="192" width="170" height="76" rx="14" fill="#ECFDF3" stroke="#32D583" stroke-width="2"/><text x="1510" y="230" text-anchor="middle" class="label">智能体修改代码</text>
+  <rect x="1420" y="352" width="180" height="76" rx="14" fill="#ffffff" stroke="#98A2B3" stroke-width="2"/><text x="1510" y="390" text-anchor="middle" class="label">用户回到页面验证</text>
+  <polygon points="1240,338 1315,390 1240,442 1165,390" fill="#FFFAEB" stroke="#F79009" stroke-width="2"/><text x="1240" y="390" text-anchor="middle" class="label">是否处理完成？</text>
+  <rect x="955" y="352" width="150" height="76" rx="14" fill="#ECFDF3" stroke="#32D583" stroke-width="2"/><text x="1030" y="390" text-anchor="middle" class="label">标记已处理</text>
+  <rect x="1145" y="464" width="190" height="72" rx="14" fill="#FEF3F2" stroke="#F97066" stroke-width="2"/><text x="1240" y="500" text-anchor="middle" class="label">补充线程或重新标注</text>
+</svg>

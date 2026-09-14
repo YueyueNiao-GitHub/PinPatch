@@ -1,0 +1,16 @@
+{
+  "name": "@pinpatch/extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PinPatch Chrome extension for local UI annotations",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "test:runtime": "npm run check && node tests/popup.mjs && node tests/runtime.mjs",
+    "test:visual": "npm run check && node tests/runtime.mjs --capture"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}

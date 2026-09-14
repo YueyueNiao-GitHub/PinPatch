@@ -1,0 +1,37 @@
+<div class="annotation-root" data-feedback-toolbar>
+  <div class="annotation-highlight" id="annotation-highlight" hidden></div>
+  <div class="annotation-tooltip" id="annotation-tooltip" role="tooltip" hidden></div>
+  <div class="annotation-markers" id="annotation-markers"></div>
+  <div class="annotation-popup" id="annotation-popup" role="dialog" aria-modal="true" aria-labelledby="annotation-popup-title" hidden></div>
+  <div class="popup-action-tooltip" id="popup-action-tooltip" role="tooltip" hidden></div>
+  <aside class="comment-panel" id="comment-panel" hidden aria-label="评论记录面板">
+    <div class="comment-panel-header">
+      <div>
+        <span class="eyebrow">标注</span>
+        <h3 id="panel-title">评论记录</h3>
+      </div>
+      <button class="icon-button light" type="button" id="close-panel" aria-label="关闭评论记录面板"><i class="ri-close-line" aria-hidden="true"></i></button>
+    </div>
+    <div class="comment-panel-body" id="comment-panel-body"></div>
+  </aside>
+  <div class="agent-toolbar collapsed" id="agent-toolbar" data-state="collapsed">
+    <div class="toolbar-expanded-content">
+      <div class="toolbar-actions" id="toolbar-actions" role="toolbar" aria-label="可视化反馈控制">
+        <button class="toolbar-button" type="button" id="annotate-toggle" data-tooltip="进入标注状态（可按“ESC”退出）" aria-label="进入标注状态，可按 ESC 退出"><i class="ri-mark-pen-line" aria-hidden="true"></i></button>
+        <button class="toolbar-button" type="button" id="visibility-toggle" data-tooltip="隐藏全部标注" aria-label="隐藏全部标注" aria-pressed="true"><i class="ri-eye-line" aria-hidden="true"></i></button>
+        <button class="toolbar-button" type="button" id="panel-toggle" data-tooltip="打开评论记录面板" aria-label="打开评论记录面板" aria-expanded="false" aria-controls="comment-panel"><i class="ri-chat-1-line" aria-hidden="true"></i></button>
+        <button class="toolbar-button" type="button" id="copy-output" data-tooltip="复制全部标注信息" aria-label="复制全部标注信息"><span class="toolbar-copy-icon-stack" aria-hidden="true"><i class="ri-file-copy-line toolbar-copy-icon copy-idle"></i><i class="ri-checkbox-circle-line toolbar-copy-icon copy-success"></i></span></button>
+        <button class="toolbar-button danger" type="button" id="clear-annotations" data-tooltip="清空全部标注" aria-label="清空全部标注"><i class="ri-delete-bin-6-line" aria-hidden="true"></i></button>
+      </div>
+      <span class="toolbar-divider" aria-hidden="true"></span>
+    </div>
+    <button class="toolbar-main" type="button" id="toolbar-toggle" data-tooltip="展开工具条" aria-label="展开可视化反馈工具条" aria-expanded="false" aria-controls="toolbar-actions">
+      <span class="toolbar-main-icon-stack" aria-hidden="true"><i class="ri-menu-unfold-line toolbar-main-icon unfold"></i><i class="ri-menu-fold-line toolbar-main-icon fold"></i></span>
+      <span class="count-badge" id="count-badge" hidden>0</span>
+    </button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+<div class="modal-overlay" id="modal-overlay" hidden></div>
+<div class="modal-content" id="demo-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title"><h3 id="modal-title">示例弹窗</h3></div>
+<div class="shadow-modal-host" id="shadow-modal-host" hidden></div>

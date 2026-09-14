@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="470" viewBox="0 0 1180 470">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#344054"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 700 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #101828; }
+    .subtitle { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #667085; }
+    .label { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #182230; dominant-baseline: middle; }
+    .edge-label { font: 600 14px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475467; paint-order: stroke; stroke: #F8FAFC; stroke-width: 5px; }
+  </style>
+  <rect x="0" y="0" width="1180" height="470" fill="#F8FAFC"/>
+  <text x="48" y="54" class="title">标注状态流：一条反馈就是一张轻量 issue</text>
+  <text x="48" y="82" class="subtitle">状态管理的意思：每条页面反馈都有自己的处理进度</text>
+  <line x1="155" y1="250" x2="215" y2="250" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="185" y="241" text-anchor="middle" class="edge-label">选中</text>
+  <line x1="385" y1="250" x2="437.5" y2="250" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="411.25" y="241" text-anchor="middle" class="edge-label">创建</text>
+  <line x1="612.5" y1="250" x2="670" y2="250" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="641.25" y="241" text-anchor="middle" class="edge-label">处理</text>
+  <line x1="870" y1="250" x2="910" y2="165" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="890" y="198.5" text-anchor="middle" class="edge-label">完成</text>
+  <line x1="670" y1="250" x2="612.5" y2="250" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="641.25" y="241" text-anchor="middle" class="edge-label">补充</text>
+  <line x1="612.5" y1="250" x2="910" y2="335" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="761.25" y="283.5" text-anchor="middle" class="edge-label">忽略</text>
+  <rect x="65" y="218" width="90" height="64" rx="10" fill="#F2F4F7" stroke="#98A2B3" stroke-width="2"/><text x="110" y="250" text-anchor="middle" class="label">开始</text>
+  <rect x="215" y="212" width="170" height="76" rx="10" fill="#FFFFFF" stroke="#98A2B3" stroke-width="2"/><text x="300" y="250" text-anchor="middle" class="label">草稿：选中元素</text>
+  <rect x="437.5" y="212" width="175" height="76" rx="10" fill="#FFF6ED" stroke="#FDB022" stroke-width="2"/><text x="525" y="250" text-anchor="middle" class="label">待处理：已创建</text>
+  <rect x="670" y="212" width="200" height="76" rx="10" fill="#EEF4FF" stroke="#84ADFF" stroke-width="2"/><text x="770" y="250" text-anchor="middle" class="label">处理中：交给智能体</text>
+  <rect x="910" y="127" width="180" height="76" rx="10" fill="#ECFDF3" stroke="#32D583" stroke-width="2"/><text x="1000" y="165" text-anchor="middle" class="label">已处理：用户确认</text>
+  <rect x="910" y="297" width="180" height="76" rx="10" fill="#F2F4F7" stroke="#98A2B3" stroke-width="2"/><text x="1000" y="335" text-anchor="middle" class="label">已忽略：关闭标注</text>
+  <g>
+    <ellipse cx="405" cy="155" rx="9.35" ry="11.9" fill="#111827"/>
+    <circle cx="401.6" cy="151.6" r="2.55" fill="#fff"/>
+    <circle cx="409.25" cy="151.6" r="2.55" fill="#fff"/>
+    <path d="M400.75,165.9 l-4,6.8" stroke="#111827" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M409.25,165.9 l4,6.8" stroke="#111827" stroke-width="1.7" stroke-linecap="round"/>
+    
+  </g>
+  <g>
+    <ellipse cx="650" cy="155" rx="8.58" ry="10.92" fill="#111827"/>
+    <circle cx="646.88" cy="151.88" r="2.34" fill="#fff"/>
+    <circle cx="653.9" cy="151.88" r="2.34" fill="#fff"/>
+    <path d="M646.1,164.92 l-4,6.24" stroke="#111827" stroke-width="1.56" stroke-linecap="round"/>
+    <path d="M653.9,164.92 l4,6.24" stroke="#111827" stroke-width="1.56" stroke-linecap="round"/>
+    
+  </g>
+</svg>

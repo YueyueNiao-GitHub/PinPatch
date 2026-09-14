@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="520" viewBox="0 0 1480 520">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#344054"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font: 700 28px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #101828; }
+    .subtitle { font: 400 15px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #667085; }
+    .label { font: 600 16px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #182230; dominant-baseline: middle; }
+    .edge-label { font: 600 14px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475467; paint-order: stroke; stroke: #F8FAFC; stroke-width: 5px; }
+  </style>
+  <rect x="0" y="0" width="1480" height="520" fill="#F8FAFC"/>
+  <text x="48" y="54" class="title">当前流程：自然语言描述导致反复返工</text>
+  <text x="48" y="82" class="subtitle">小黑在浏览器里指得很准，但 AI 到代码里只能猜</text>
+  <line x1="212.5" y1="240" x2="247.5" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="422.5" y1="240" x2="462.5" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="627.5" y1="240" x2="677.5" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="842.5" y1="240" x2="890" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="1070" y1="240" x2="1121" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="1121" y1="240" x2="865" y2="400" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="993" y="311" text-anchor="middle" class="edge-label">否</text>
+  <line x1="760" y1="364" x2="760" y2="278" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/>
+  <line x1="1249" y1="240" x2="1280" y2="240" stroke="#344054" stroke-width="2.1" marker-end="url(#arrow)"/><text x="1264.5" y="231" text-anchor="middle" class="edge-label">是</text>
+  <rect x="47.5" y="202" width="165" height="76" rx="10" fill="#EEF4FF" stroke="#84ADFF" stroke-width="2"/><text x="130" y="240" text-anchor="middle" class="label">AI 生成前端代码</text>
+  <rect x="247.5" y="202" width="175" height="76" rx="10" fill="#FFFFFF" stroke="#98A2B3" stroke-width="2"/><text x="335" y="229" text-anchor="middle" class="label">打开 localhost </text><text x="335" y="251" text-anchor="middle" class="label">页面</text>
+  <rect x="462.5" y="202" width="165" height="76" rx="10" fill="#FFF6ED" stroke="#FDB022" stroke-width="2"/><text x="545" y="240" text-anchor="middle" class="label">发现页面问题</text>
+  <rect x="677.5" y="202" width="165" height="76" rx="10" fill="#FFFFFF" stroke="#98A2B3" stroke-width="2"/><text x="760" y="240" text-anchor="middle" class="label">自然语言描述</text>
+  <rect x="890" y="202" width="180" height="76" rx="10" fill="#FEF3F2" stroke="#F97066" stroke-width="2"/><text x="980" y="240" text-anchor="middle" class="label">AI 猜目标位置</text>
+  <polygon points="1185,192 1249,240 1185,288 1121,240" fill="#FFFAEB" stroke="#F79009" stroke-width="2"/><text x="1185" y="240" text-anchor="middle" class="label">是否改对？</text>
+  <rect x="655" y="364" width="210" height="72" rx="10" fill="#FEF3F2" stroke="#F97066" stroke-width="2"/><text x="760" y="400" text-anchor="middle" class="label">补充描述/截图/类名</text>
+  <rect x="1280" y="202" width="160" height="76" rx="10" fill="#ECFDF3" stroke="#32D583" stroke-width="2"/><text x="1360" y="240" text-anchor="middle" class="label">预览继续开发</text>
+  <g>
+    <ellipse cx="550" cy="145" rx="9.02" ry="11.479999999999999" fill="#111827"/>
+    <circle cx="546.72" cy="141.72" r="2.46" fill="#fff"/>
+    <circle cx="554.1" cy="141.72" r="2.46" fill="#fff"/>
+    <path d="M545.9,155.48 l-4,6.56" stroke="#111827" stroke-width="1.64" stroke-linecap="round"/>
+    <path d="M554.1,155.48 l4,6.56" stroke="#111827" stroke-width="1.64" stroke-linecap="round"/>
+    <path d="M557.02,143 q16,-8 28,-2" stroke="#111827" stroke-width="1.64" fill="none" stroke-linecap="round"/>
+  </g>
+  <g>
+    <ellipse cx="1040" cy="150" rx="9.02" ry="11.479999999999999" fill="#111827"/>
+    <circle cx="1036.72" cy="146.72" r="2.46" fill="#fff"/>
+    <circle cx="1044.1" cy="146.72" r="2.46" fill="#fff"/>
+    <path d="M1035.9,160.48 l-4,6.56" stroke="#111827" stroke-width="1.64" stroke-linecap="round"/>
+    <path d="M1044.1,160.48 l4,6.56" stroke="#111827" stroke-width="1.64" stroke-linecap="round"/>
+    
+  </g>
+</svg>

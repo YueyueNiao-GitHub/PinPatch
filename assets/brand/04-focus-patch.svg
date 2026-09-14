@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PinPatch Focus Patch</title>
+  <desc id="desc">A selected interface tile is isolated by a precise focus frame.</desc>
+  <defs>
+    <rect id="small-tile" width="11" height="11" rx="3"/>
+  </defs>
+  <g fill="currentColor">
+    <use href="#small-tile" x="28" y="28" opacity=".2"/>
+    <use href="#small-tile" x="44.5" y="28" opacity=".2"/>
+    <use href="#small-tile" x="61" y="28" opacity=".2"/>
+    <use href="#small-tile" x="28" y="44.5" opacity=".2"/>
+    <use href="#small-tile" x="61" y="44.5" opacity=".2"/>
+    <use href="#small-tile" x="28" y="61" opacity=".2"/>
+    <use href="#small-tile" x="44.5" y="61" opacity=".2"/>
+    <use href="#small-tile" x="61" y="61" opacity=".2"/>
+    <rect x="43" y="43" width="14" height="14" rx="4"/>
+  </g>
+  <rect x="36" y="36" width="28" height="28" rx="8" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="9 5"/>
+</svg>
